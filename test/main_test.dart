@@ -4,10 +4,10 @@ import 'package:unittest/unittest.dart';
 import 'package:di/di.dart';
 import 'package:angular/angular.dart';
 import 'package:angular/mock/module.dart';
-import 'package:angular_dart_demo/recipe_book.dart';
-import 'package:angular_dart_demo/formatter/category_filter.dart';
-import 'package:angular_dart_demo/rating/rating_component.dart';
-import 'package:angular_dart_demo/service/recipe.dart';
+import 'package:research_lims/study_creation.dart';
+import 'package:research_lims/formatter/category_filter.dart';
+import 'package:research_lims/component/rating/rating_component.dart';
+import 'package:research_lims/service/recipe.dart';
 
 import '../web/main.dart';
 
@@ -24,7 +24,7 @@ main() {
       backend.expectGET('recipes.json').respond('[{"name": "test1"}]');
       backend.expectGET('categories.json').respond('["c1"]');
 
-      var recipesController = injector.get(RecipeBookController);
+      var recipesController = injector.get(StudyCreationController);
       expect(recipesController.allRecipes, isEmpty);
 
       microLeap();
@@ -39,7 +39,7 @@ main() {
       backend.expectGET('recipes.json').respond('[{"name": "test1"}]');
       backend.expectGET('categories.json').respond('["c1"]');
 
-      var recipesController = injector.get(RecipeBookController);
+      var recipesController = injector.get(StudyCreationController);
       expect(recipesController.allRecipes, isEmpty);
 
       microLeap();

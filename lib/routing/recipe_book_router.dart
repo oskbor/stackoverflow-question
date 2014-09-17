@@ -1,4 +1,4 @@
-library recipe_book_routing;
+library lims_routing;
 
 import 'package:angular/angular.dart';
 

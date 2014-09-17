@@ -1,7 +1,8 @@
-name: angular_dart_demo
+name: research_lims
 version: 0.0.1
+author: Oskar Börjesson
 dependencies:
-  angular: 0.14.0
+  angular: any
   http_server: any
 dev_dependencies:
   unittest: any
