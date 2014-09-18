@@ -6,6 +6,14 @@
 
     <script src="packages/web_components/platform.js"></script>
     <script src="packages/web_components/dart_support.js"></script>
+    <link rel="import" href="bower_components/paper-input/paper-input.html">
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <style shim-shadowdom>
+        paper-button.colored {
+      background: #4285f4;
+      color: #fff;
+    }
+    </style>
 </head>
 <body create-study ng-cloak>
   <div>
@@ -16,17 +24,18 @@
       <option value="">---</option>
    <option ng-repeat="c in ctrl.templates" ng-value="c" ng-click="ctrl.alert(c)">{{c}}</option>
    </select>
-<input type="text" ng-model="ctrl.selectedStudy.name"><br>
-<textarea rows=10 ng-model="ctrl.selectedStudy.description"></textarea>
+<paper-input floatingLabel label="Study Name" type="text" bind-value="ctrl.selectedStudy.name"></paper-input><br>
+<textarea rows=10 ng-model="ctrl.selectedStudy.description">
+</textarea>
       <nav id="controls">
         <search-study 
             name-filter-string="ctrl.nameFilter"
             category-filter-map="ctrl.templateFilterMap">
         </search-study>
 
-        <a href="#/add"><input type="button" value="Add Study"></a><br/>
       </nav>
-      
+     
+        <a href="#/add"><paper-button label="Add Study" class="colored"></paper-button></a><br/> 
       <nav id="search-results">
         <div id="study-list">
           <ul>

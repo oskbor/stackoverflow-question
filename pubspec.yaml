@@ -2,9 +2,11 @@ name: research_lims
 version: 0.0.1
 author: Oskar Börjesson
 dependencies:
-  angular: any
+  angular: 0.14.0
   http_server: any
+  web_components: any
 dev_dependencies:
   unittest: any
+dependency_overrides: null
 transformers:
 - angular

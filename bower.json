@@ -9,11 +9,11 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "web/bower_components/",
     "test",
     "tests"
   ],
   "dependencies": {
-    "core-elements": "Polymer/core-elements#~0.4.0",
-    "paper-elements": "Polymer/paper-elements#~0.4.0"
+    "paper-elements": "polymer/paper-elements#~0.4.0"
   }
 }
