@@ -14,7 +14,7 @@ import '../web/main.dart';
 main() {
   setUp(() {
    setUpInjector();
-   module((Module m) => m.install(new MyAppModule()));
+   module((Module m) => m.install(new LimsApp()));
   });
   tearDown(tearDownInjector);
 
