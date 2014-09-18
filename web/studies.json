@@ -3,8 +3,8 @@
     "id": "1",
     "name":"Bleu Cheese Stuffed Mushrooms",
     "category":"Appetizers",
-    "ingredients":[
-        "12 mushrooms",
+    "selected_attributes":[
+        {"id": "a1", "name":"12 mushrooms"},
         "8 oz bleu cheese",
         "1/2 red onion, diced",
         "1/4 cup bread crumbs",

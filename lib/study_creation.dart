@@ -5,6 +5,8 @@ import 'package:angular/angular.dart';
 import 'lims.dart';
 import 'service/query_service.dart';
 
+import 'dart:html';
+
 @Controller(
     selector: '[create-study]',
     publishAs: 'ctrl')
@@ -14,10 +16,11 @@ class StudyCreationController {
   final Http _http;
   final QueryService queryService;
 
+  Study selectedStudy;
 
   // Data objects that are loaded from the server side via json
-  List<String> _categories = [];
-  List<String> get categories => _categories;
+  List<String> _templates = [];
+  List<String> get templates => _templates;
 
   Map<String, Study> _studyMap = {};
   Map<String, Study> get studyMap => _studyMap;
@@ -26,19 +29,20 @@ class StudyCreationController {
   List<Study> get allStudies => _allStudies;
 
   // Filter box
-  final categoryFilterMap = <String, bool>{};
+  final templateFilterMap = <String, bool>{};
   String nameFilter = "";
 
   StudyCreationController(this._http, this.queryService) {
+    this.selectedStudy = new Study(null, "new study","", 5, null);
     _loadData();
   }
-
-  Study selectedStudy;
 
   void selectStudy(Study study) {
     selectedStudy = study;
   }
-
+  void alert(e){
+    window.alert(e);
+  }
 
   void _loadData() {
     queryService.getAllStudies()
@@ -51,11 +55,11 @@ class StudyCreationController {
 
       });
 
-    queryService.getAllCategories()
+    queryService.getAllTemplates()
       .then((List<String> allCategories) {
-        _categories = allCategories;
-        for (String category in _categories) {
-          categoryFilterMap[category] = false;
+        _templates = allCategories;
+        for (String template in _templates) {
+          templateFilterMap[template] = false;
         }
       })
       .catchError((e) {

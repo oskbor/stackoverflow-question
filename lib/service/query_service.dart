@@ -45,7 +45,7 @@ class QueryService {
     return _studyCache == null ? _loaded.then((_) => _studyCache) : new Future.value(_studyCache);
   }
 
-  Future<List<String>> getAllCategories() {
+  Future<List<String>> getAllTemplates() {
     return _categoriesCache == null ? _loaded.then((_) => _categoriesCache) : new Future.value(_categoriesCache);
   }
 }
