@@ -7,7 +7,7 @@ import 'package:angular/mock/module.dart';
 import 'package:research_lims/study_creation.dart';
 import 'package:research_lims/formatter/category_filter.dart';
 import 'package:research_lims/component/rating/rating_component.dart';
-import 'package:research_lims/service/recipe.dart';
+import 'package:research_lims/lims.dart';
 
 import '../web/main.dart';
 
@@ -47,8 +47,8 @@ main() {
       microLeap();
 
       var recipe = recipesController.allRecipes[0];
-      recipesController.selectRecipe(recipe);
-      expect(recipesController.selectedRecipe, same(recipe));
+      recipesController.selectStudy(recipe);
+      expect(recipesController.selectedStudy, same(recipe));
     })));
   });
 
@@ -77,8 +77,8 @@ main() {
 
   group('categoryFilter', () {
     test('should return subset', inject((CategoryFilter filter) {
-      var r1 = new Recipe(null, null, 'C1', null, null, null, null);
-      var r2 = new Recipe(null, null, 'C2', null, null, null, null);
+      var r1 = new Study(null, null, 'C1', null, null, null, null);
+      var r2 = new Study(null, null, 'C2', null, null, null, null);
       var list = [r1, r2];
       var map = {"C1": false, "C2": true};
       expect(filter(list, map), equals([r2]));

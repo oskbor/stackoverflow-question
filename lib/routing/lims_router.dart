@@ -2,7 +2,7 @@ library lims_routing;
 
 import 'package:angular/angular.dart';
 
-void recipeBookRouteInitializer(Router router, RouteViewFactory views) {
+void limsRouteInitializer(Router router, RouteViewFactory views) {
   views.configure({
     'add': ngRoute(
         path: '/add',

@@ -2,7 +2,7 @@ library research_lims;
 
 import 'package:angular/angular.dart';
 
-import 'service/recipe.dart';
+import 'lims.dart';
 import 'service/query_service.dart';
 
 @Controller(
@@ -19,11 +19,11 @@ class StudyCreationController {
   List<String> _categories = [];
   List<String> get categories => _categories;
 
-  Map<String, Recipe> _recipeMap = {};
-  Map<String, Recipe> get recipeMap => _recipeMap;
-  List<Recipe> _allRecipes = [];
+  Map<String, Study> _studyMap = {};
+  Map<String, Study> get studyMap => _studyMap;
+  List<Study> _allStudies = [];
 
-  List<Recipe> get allRecipes => _allRecipes;
+  List<Study> get allStudies => _allStudies;
 
   // Filter box
   final categoryFilterMap = <String, bool>{};
@@ -33,18 +33,18 @@ class StudyCreationController {
     _loadData();
   }
 
-  Recipe selectedRecipe;
+  Study selectedStudy;
 
-  void selectRecipe(Recipe recipe) {
-    selectedRecipe = recipe;
+  void selectStudy(Study study) {
+    selectedStudy = study;
   }
 
 
   void _loadData() {
-    queryService.getAllRecipes()
-      .then((Map<String, Recipe> allRecipes) {
-        _recipeMap = allRecipes;
-        _allRecipes = _recipeMap.values.toList();
+    queryService.getAllStudies()
+      .then((Map<String, Study> allStudies) {
+        _studyMap = allStudies;
+        _allStudies = _studyMap.values.toList();
       })
       .catchError((e) {
         print(e);

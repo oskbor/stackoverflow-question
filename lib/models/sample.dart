@@ -1,4 +1,5 @@
 part of lims;
+
 class Sample {
   String name;
   String _id;

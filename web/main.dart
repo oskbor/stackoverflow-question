@@ -8,20 +8,19 @@ import 'package:research_lims/study_creation.dart';
 import 'package:research_lims/formatter/category_filter.dart';
 import 'package:research_lims/component/rating/rating_component.dart';
 import 'package:research_lims/service/query_service.dart';
-import 'package:research_lims/routing/recipe_book_router.dart';
+import 'package:research_lims/routing/lims_router.dart';
 import 'package:research_lims/component/view/view_component.dart';
 import 'package:research_lims/component/search/search_component.dart';
 
 class LimsApp extends Module {
   LimsApp() {
-   // Binding.printInjectWarning = false;   // needed for https://github.com/angular/angular.dart/issues/1272
     bind(StudyCreationController);
     bind(RatingComponent);
     bind(CategoryFilter);
     bind(SearchComponent);
     bind(ViewComponent);
     bind(QueryService);
-    bind(RouteInitializerFn, toValue: recipeBookRouteInitializer);
+    bind(RouteInitializerFn, toValue: limsRouteInitializer);
     bind(NgRoutingUsePushState, toValue: new NgRoutingUsePushState.value(false));
   }
 }

@@ -8,11 +8,7 @@
     <script src="packages/web_components/dart_support.js"></script>
 </head>
 <body create-study ng-cloak>
-  <div ng-switch="ctrl.recipesLoaded && ctrl.categoriesLoaded">
-    <div ng-switch-when="false">
-      {{ctrl.message}}
-    </div>
-    <div ng-switch-when="true">
+  <div>
       <h3>Create a new study</h3>
       
       <select>
@@ -20,22 +16,19 @@
    </select>
 
       <nav id="controls">
-        <search-recipe 
+        <search-study 
             name-filter-string="ctrl.nameFilter"
             category-filter-map="ctrl.categoryFilterMap">
-        </search-recipe>
+        </search-study>
 
-        <a href="#/add"><input type="button" value="Add Recipe"></a><br/>
+        <a href="#/add"><input type="button" value="Add Study"></a><br/>
       </nav>
       
       <nav id="search-results">
-        <div id="recipe-list">
+        <div id="study-list">
           <ul>
-            <li ng-repeat="recipe in ctrl.allRecipes | orderBy:'name' | filter:{name:ctrl.nameFilter} | categoryfilter:ctrl.categoryFilterMap">
-              <span tooltip="ctrl.tooltipForRecipe(recipe)">
-                <rating max-rating="5" rating="recipe.rating"></rating>
-                <a class="extra-space" href="#/recipe/{{recipe.id}}/view">{{recipe.name}}</a>
-              </span>
+            <li ng-repeat="recipe in ctrl.allStudies | orderBy:'name'">
+              hej
             </li>
           </ul>
         </div>      
@@ -46,8 +39,6 @@
       </section>
       
     </div>
-
-  </div>
 
   <script type="application/dart" src="main.dart"></script>
   <script type="text/javascript" src="packages/browser/dart.js"></script>

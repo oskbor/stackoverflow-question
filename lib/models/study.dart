@@ -1,12 +1,12 @@
 part of lims;
 class Study {
   String name;
-  String _id;
+  String id;
   List<Attribute> selected_attributes;
-  Study(this._id,this.name, this.selected_attributes);
+  Study(this.id,this.name, this.selected_attributes);
   
   Map<String, dynamic> toJson() => <String, dynamic>{
-    "id": _id,
+    "id": id,
     "name": name,
     "selected_attributes": selected_attributes
   };

@@ -1,22 +1,22 @@
 library view_recipe_component;
 
-import '../../service/recipe.dart';
+import '../../lims.dart';
 import 'package:angular/angular.dart';
 
 @Component(
-    selector: 'view-recipe',
+    selector: 'view-study',
     templateUrl: 'packages/research_lims/component/view/view_component.html',
     cssUrl: 'packages/research_lims/component/view_recipe_component.css',
     publishAs: 'cmp')
 class ViewComponent {
-  @NgOneWay('recipe-map')
-  Map<String, Recipe> recipeMap;
+  @NgOneWay('study-map')
+  Map<String, Study> studyMap;
 
-  String _recipeId;
+  String _studyId;
 
-  Recipe get recipe => recipeMap == null ? null : recipeMap[_recipeId];
+  Study get study => studyMap == null ? null : studyMap[_studyId];
 
   ViewComponent(RouteProvider routeProvider) {
-    _recipeId = routeProvider.parameters['recipeId'];
+    _studyId = routeProvider.parameters['studyId'];
   }
 }
