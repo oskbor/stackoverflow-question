@@ -17,7 +17,6 @@ class StudyComponent {
 
   final Http _http;
   final QueryService queryService;
-  Scope _scope;
 
   Study selectedStudy;
 
@@ -34,7 +33,7 @@ class StudyComponent {
   String text ="heheheh";
 
 
-  StudyComponent(this._http, this.queryService, this._scope) {
+  StudyComponent(this._http, this.queryService) {
     this.selectedStudy = new Study(null, "new study","", 5, null);
     _loadData();
   }
