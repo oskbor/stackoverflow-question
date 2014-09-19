@@ -10,7 +10,6 @@ cache
 *.dart.precompiled.js
 *.js_
 *.js.deps
-*.js.map
 
 # Include when developing application packages.
 pubspec.lock

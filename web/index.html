@@ -8,6 +8,8 @@
     <script src="packages/web_components/dart_support.js"></script>
     <link rel="import" href="bower_components/paper-input/paper-input.html">
     <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/paper-dropdown/paper-dropdown.html">
+    <link rel="import" href="bower_components/paper-item/paper-item.html">
     <style shim-shadowdom>
         paper-button.colored {
       background: #4285f4;
@@ -20,22 +22,18 @@
       <h3>Create a new study</h3>
       Using template: {{template}} <br>
       
-      <select ng-model="template">
-      <option value="">---</option>
-   <option ng-repeat="c in ctrl.templates" ng-value="c" ng-click="ctrl.alert(c)">{{c}}</option>
-   </select>
+      <paper-dropdown valueattr="id" on-core-select="ctrl.alert" bind-selected="template">
+        <paper-item ng-repeat="t in ctrl.templates" label="{{t.name}}" id="{{t.id}}"></paper-item>
+      </paper-dropdown>
+   {{ctrl.selectedStudy.name}}
 <paper-input floatingLabel label="Study Name" type="text" bind-value="ctrl.selectedStudy.name"></paper-input><br>
 <textarea rows=10 ng-model="ctrl.selectedStudy.description">
 </textarea>
-      <nav id="controls">
-        <search-study 
-            name-filter-string="ctrl.nameFilter"
-            category-filter-map="ctrl.templateFilterMap">
-        </search-study>
-
-      </nav>
      
-        <a href="#/add"><paper-button label="Add Study" class="colored"></paper-button></a><br/> 
+        <a href="#/add">
+        <paper-button label="Add Study" class="colored" on-click="ctrl.alert"></paper-button>
+        </a>
+        <br/> 
       <nav id="search-results">
         <div id="study-list">
           <ul>
