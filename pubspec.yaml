@@ -9,4 +9,7 @@ dev_dependencies:
   unittest: any
 dependency_overrides: null
 transformers:
-- angular
+- angular:
+    html_files:
+      - web/index.html
+      - web/paper.html

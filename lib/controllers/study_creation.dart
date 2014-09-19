@@ -25,7 +25,10 @@ class StudyCreationController {
   List<Study> _allStudies = [];
 
   List<Study> get allStudies => _allStudies;
-
+  
+  num curValue= 22;
+  num max= 100;
+  String text ="heheheh";
   // Filter box
   final templateFilterMap = <String, bool>{};
   String nameFilter = "";

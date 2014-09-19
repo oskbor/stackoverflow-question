@@ -4,11 +4,14 @@
     <title>Research LIMS</title>
     <link rel="stylesheet" href="style.css">
 
-    <script src="bower_components/platform/platform.js"></script>
+   <!-- 
+     No more polymer right now, its not working very well
+   <script src="bower_components/platform/platform.js"></script>
     <link rel="import" href="bower_components/paper-input/paper-input.html">
     <link rel="import" href="bower_components/paper-button/paper-button.html">
     <link rel="import" href="bower_components/paper-dropdown/paper-dropdown.html">
     <link rel="import" href="bower_components/paper-item/paper-item.html">
+    --> 
     <script type="application/dart" src="main.dart"></script>
     <script type="text/javascript" src="packages/browser/dart.js"></script>
     <style shim-shadowdom>
@@ -23,16 +26,16 @@
       <h3>Create a new study</h3>
       Using template: {{template}} <br>
       
-      <paper-dropdown valueattr="id" on-core-select=ctrl.alert() ng-change="ctrl.alert" bind-selected="template">
-        <paper-item ng-repeat="t in ctrl.templates" label="{{t.name}}" id="{{t.id}}"></paper-item>
-      </paper-dropdown>
+      <select valueattr="id" ng-model="template">
+        <option ng-repeat="t in ctrl.templates" label="{{t.name}}" id="{{t.id}}" on-click=ctrl.alert('{{t.id}}')></option>
+      </select>
    {{ctrl.selectedStudy.name}}
 <paper-input floatingLabel label="Study Name" type="text" bind-value="ctrl.selectedStudy.name"></paper-input><br>
 <textarea rows=10 ng-model="ctrl.selectedStudy.description">
 </textarea>
      
         <a href="#/add">
-        <paper-button label="Add Study" class="colored" on-click="ctrl.alert"></paper-button>
+        <button label="Add Study" class="colored" on-click="ctrl.alert('hej')"></button>
         </a>
         <br/> 
       <nav id="search-results">
