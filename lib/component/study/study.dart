@@ -9,7 +9,7 @@ import 'dart:html';
 
 @Component(
     selector: 'study',
-    publishAs: 'ctrl',
+    publishAs: 'cmp',
     templateUrl: 'packages/research_lims/component/study/study.html'    
 )
 class StudyComponent {
@@ -42,7 +42,8 @@ class StudyComponent {
   void selectStudy(Study study) {
     selectedStudy = study;
   }
-  void alert([e]){
+
+  void sendAlert([e]){
     e= e==null ? 'nuthing': e;
     window.alert(e);
   }

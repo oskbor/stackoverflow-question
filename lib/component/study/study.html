@@ -1,18 +1,18 @@
 <h1>Polymer components inside a AngularDart app</h1>
     <h2>Property binding: paper-progress</h2>
     <p>This is a simple component that doesn't generate events; the only things that is required is property binding</p>
-    <p>The max ({{ctrl.max}}) and value ({{ctrl.curValue}}) properties are bound through bind-* semantics</p>
+    <p>The max ({{cmp.max}}) and value ({{cmp.curValue}}) properties are bound through bind-* semantics</p>
 
-    <p>Text from Angular: <b>{{ctrl.text}}</b></p>
+    <p>Text from Angular: <b>{{cmp.text}}</b></p>
     
     <div>
-      <paper-progress bind-max=ctrl.max bind-value=ctrl.curValue></paper-progress>
+      <paper-progress bind-max=cmp.max bind-value=cmp.curValue></paper-progress>
     </div>
      
     <p>
       <label>
         Change the value through an ng-model bound input box:
-        <input type="number" ng-model="ctrl.curValue">
+        <input type="number" ng-model="cmp.curValue">
       </label>
      </p>
 
@@ -21,13 +21,13 @@
     <p>AngularDart can listen to these events through the on-* syntax</p>
 
     <div>
-        <paper-checkbox on-change="ctrl.alert('yo mama')"></paper-checkbox>
+        <paper-checkbox on-change="cmp.sendAlert('yo mama')"></paper-checkbox>
     </div>
-    <p>Every the value changes, the curValue ({{ctrl.curValue}}) scope variable will update</p>
+    <p>Every the value changes, the curValue ({{cmp.curValue}}) scope variable will update</p>
 
     <h2>Two-way binding: paper-slider</h2>
-    <p>The slide is bound to the curValue scope variable ({{ctrl.curValue}})</p>
+    <p>The slide is bound to the curValue scope variable ({{cmp.curValue}})</p>
 
     <div>
-        <paper-slider min="0" bind-max="ctrl.max" bind-value="ctrl.curValue" pin="true"></paper-slider>
+        <paper-slider min="0" bind-max="cmp.max" bind-value="cmp.curValue" pin="true"></paper-slider>
     </div>
