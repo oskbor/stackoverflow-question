@@ -4,12 +4,13 @@
     <title>Research LIMS</title>
     <link rel="stylesheet" href="style.css">
 
-    <script src="packages/web_components/platform.js"></script>
-    <script src="packages/web_components/dart_support.js"></script>
+    <script src="bower_components/platform/platform.js"></script>
     <link rel="import" href="bower_components/paper-input/paper-input.html">
     <link rel="import" href="bower_components/paper-button/paper-button.html">
     <link rel="import" href="bower_components/paper-dropdown/paper-dropdown.html">
     <link rel="import" href="bower_components/paper-item/paper-item.html">
+    <script type="application/dart" src="main.dart"></script>
+    <script type="text/javascript" src="packages/browser/dart.js"></script>
     <style shim-shadowdom>
         paper-button.colored {
       background: #4285f4;
@@ -22,7 +23,7 @@
       <h3>Create a new study</h3>
       Using template: {{template}} <br>
       
-      <paper-dropdown valueattr="id" on-core-select="ctrl.alert" bind-selected="template">
+      <paper-dropdown valueattr="id" on-core-select=ctrl.alert() ng-change="ctrl.alert" bind-selected="template">
         <paper-item ng-repeat="t in ctrl.templates" label="{{t.name}}" id="{{t.id}}"></paper-item>
       </paper-dropdown>
    {{ctrl.selectedStudy.name}}
@@ -50,8 +51,5 @@
       </section>
       
     </div>
-
-  <script type="application/dart" src="main.dart"></script>
-  <script type="text/javascript" src="packages/browser/dart.js"></script>
 </body>
 </html>
