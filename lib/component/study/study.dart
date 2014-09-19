@@ -2,19 +2,22 @@ library research_lims;
 
 import 'package:angular/angular.dart';
 
-import '../lims.dart';
-import '../service/query_service.dart';
+import '../../lims.dart';
+import '../../service/query_service.dart';
 
 import 'dart:html';
 
-@Controller(
-    selector: '[create-study]',
-    publishAs: 'ctrl')
-class StudyCreationController {
+@Component(
+    selector: 'study',
+    publishAs: 'ctrl',
+    templateUrl: 'packages/research_lims/component/study/study.html'    
+)
+class StudyComponent {
 
 
   final Http _http;
   final QueryService queryService;
+  Scope _scope;
 
   Study selectedStudy;
 
@@ -25,15 +28,13 @@ class StudyCreationController {
   List<Study> _allStudies = [];
 
   List<Study> get allStudies => _allStudies;
-  
+  @NgTwoWay('curValue')
   num curValue= 22;
   num max= 100;
   String text ="heheheh";
-  // Filter box
-  final templateFilterMap = <String, bool>{};
-  String nameFilter = "";
 
-  StudyCreationController(this._http, this.queryService) {
+
+  StudyComponent(this._http, this.queryService, this._scope) {
     this.selectedStudy = new Study(null, "new study","", 5, null);
     _loadData();
   }
@@ -41,7 +42,8 @@ class StudyCreationController {
   void selectStudy(Study study) {
     selectedStudy = study;
   }
-  void alert(e){
+  void alert([e]){
+    e= e==null ? 'nuthing': e;
     window.alert(e);
   }
 

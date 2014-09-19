@@ -2,7 +2,9 @@ name: research_lims
 version: 0.0.1
 author: Oskar Börjesson
 dependencies:
-  angular: 0.14.0
+  angular:
+    git: https://github.com/angular/angular.dart.git
+    version: 0.14.0
   http_server: any
   web_components: any
 dev_dependencies:
@@ -11,5 +13,5 @@ dependency_overrides: null
 transformers:
 - angular:
     html_files:
-      - web/index.html
-      - web/paper.html
+    - web/index.html
+    - web/paper.html
